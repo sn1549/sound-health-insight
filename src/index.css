@@ -2,39 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Health Analytics Dashboard Design System - Medical/Data Theme
+All colors MUST be HSL for consistency.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 20% 98%;
+    --foreground: 213 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 213 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 213 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 195 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 195 75% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 192 15% 94%;
+    --secondary-foreground: 213 20% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 195 10% 95%;
+    --muted-foreground: 213 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 65% 48%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 145 65% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 195 15% 88%;
+    --input: 195 15% 88%;
+    --ring: 195 85% 45%;
+
+    /* Health-specific colors */
+    --health-excellent: 145 65% 45%;
+    --health-good: 85 65% 50%;
+    --health-moderate: 35 85% 55%;
+    --health-poor: 0 75% 55%;
+    --health-critical: 330 85% 45%;
+
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-health: linear-gradient(135deg, hsl(var(--health-excellent)), hsl(var(--accent)));
+    --gradient-data: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.05));
+
+    /* Shadow definitions */
+    --shadow-card: 0 4px 20px hsl(var(--primary) / 0.08);
+    --shadow-chart: 0 8px 32px hsl(var(--primary) / 0.12);
+    --shadow-hero: 0 20px 60px hsl(var(--primary) / 0.15);
 
     --radius: 0.5rem;
 
@@ -56,33 +81,58 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 213 25% 8%;
+    --foreground: 195 15% 88%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 213 20% 12%;
+    --card-foreground: 195 15% 88%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 213 20% 12%;
+    --popover-foreground: 195 15% 88%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 195 85% 55%;
+    --primary-foreground: 213 25% 8%;
+    --primary-glow: 195 75% 65%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 213 15% 18%;
+    --secondary-foreground: 195 15% 78%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 213 15% 16%;
+    --muted-foreground: 195 10% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 180 55% 58%;
+    --accent-foreground: 213 25% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --warning: 35 80% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 145 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 213 15% 22%;
+    --input: 213 15% 22%;
+    --ring: 195 85% 55%;
+
+    /* Dark mode health colors */
+    --health-excellent: 145 60% 50%;
+    --health-good: 85 60% 55%;
+    --health-moderate: 35 80% 60%;
+    --health-poor: 0 65% 60%;
+    --health-critical: 330 80% 50%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-health: linear-gradient(135deg, hsl(var(--health-excellent)), hsl(var(--accent)));
+    --gradient-data: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.08));
+
+    /* Dark mode shadows */
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-chart: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --shadow-hero: 0 20px 60px hsl(0 0% 0% / 0.5);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
