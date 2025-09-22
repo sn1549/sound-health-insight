@@ -4,6 +4,7 @@ import { CorrelationChart } from "@/components/dashboard/CorrelationChart";
 import { NoiseHealthScatter } from "@/components/dashboard/NoiseHealthScatter";
 import { AIInsights } from "@/components/dashboard/AIInsights";
 import { CityComparison } from "@/components/dashboard/CityComparison";
+import { CitySearch } from "@/components/dashboard/CitySearch";
 import { Volume2, Heart, TrendingUp, AlertTriangle } from "lucide-react";
 
 const Index = () => {
@@ -12,10 +13,15 @@ const Index = () => {
       <Header />
       
       <main className="container mx-auto px-6 py-8 space-y-8">
+        {/* City Search Feature */}
+        <section>
+          <CitySearch />
+        </section>
+
         {/* Key Statistics */}
         <section>
           <h2 className="text-2xl font-semibold mb-6 text-foreground">
-            Health Impact Overview
+            Overall Health Impact Overview
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard
